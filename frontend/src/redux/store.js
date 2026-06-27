@@ -3,6 +3,7 @@ import userSlice from "./userSlice"
 import courseSlice from "./courseSlice"
 import lectureSlice from "./lectureSlice"
 import reviewSlice from "./reviewSlice"
+
 export const store = configureStore({
     reducer:{
         user:userSlice,
@@ -10,4 +11,4 @@ export const store = configureStore({
         lecture:lectureSlice,
         review:reviewSlice
     }
-})
+})// configure store is used to make a store of data or catagories the data
