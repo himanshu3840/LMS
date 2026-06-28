@@ -7,6 +7,8 @@ import { ToastContainer } from 'react-toastify'
 export const serverUrl = "http://localhost:8000"
 
 function App() {
+
+   getCurrentUser()
   return (
     <>
       <ToastContainer />
