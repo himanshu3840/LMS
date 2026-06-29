@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import logo from "../assets/logo.jpg"
+import React, { useState,useEffect } from 'react'
+// import logo from "../assets/logo.jpg"
 import { IoMdPerson } from "react-icons/io";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { GiSplitCross } from "react-icons/gi";
@@ -12,27 +12,43 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setUserData } from '../redux/userSlice';
 
 function Nav() {
-  let [showHam,setShowHam] = useState(false)
+  
+  let [showHam,setShowHam] = useState(false)// to show hamburger jo side me aata hai agar screen choti ho to
   let [showPro,setShowPro] = useState(false)
   let navigate = useNavigate()
   let dispatch = useDispatch()
   let {userData} = useSelector(state=>state.user)
 
+  
+
+  
+
   const handleLogout = async () => {
     try {
       const result = await axios.get(serverUrl + "/api/auth/logout" , {withCredentials:true})
       console.log(result.data)
-     await dispatch(setUserData(null))
+      await dispatch(setUserData(null))
       toast.success("LogOut Successfully")
     } catch (error) {
       console.log(error.response.data.message)
-    }
+
+//       {
+//   response: {
+//     status: 401,
+//     data: {
+//       message: "Unauthorized"
+//     }
+//   }
+// } this is what is send from the backend when any erorr occurs
+
+     }
   }
+
   return (
     <div>
     <div className='w-[100%] h-[70px] fixed top-0 px-[20px] py-[10px] flex items-center justify-between bg-[#00000047]  z-10'>
      <div className='lg:w-[20%] w-[40%] lg:pl-[50px] '>
-        <img src={logo} className=' w-[60px]  rounded-[5px] border-2 border-white cursor-pointer' onClick={()=>navigate("/")} alt="" />
+       <img src={null} className="w-[60px] rounded-[5px] border-2 border-white cursor-pointer" onClick={() => navigate("/")} alt="Logo" /> // add image when you get it
       
      </div>
      
@@ -44,6 +60,7 @@ function Nav() {
         
         
        <div className='w-[50px] h-[50px] rounded-full text-white flex items-center justify-center text-[20px] border-2 bg-black  border-white cursor-pointer' onClick={()=>setShowPro(prev=>!prev)}>
+
          {userData.photoUrl ? <img src={userData.photoUrl} className='w-[100%] h-[100%] rounded-full object-cover' alt="" />
          :
          <div className='w-[50px] h-[50px] rounded-full text-white flex items-center justify-center text-[20px] border-2 bg-black  border-white cursor-pointer' >{userData?.name.slice(0,1).toUpperCase()}</div>}
@@ -57,7 +74,7 @@ function Nav() {
      </div>
      {showPro && <div className=' absolute top-[110%] right-[15%] flex items-center flex-col justify-center gap-2 text-[16px] rounded-md bg-[white] px-[15px] py-[10px] border-[2px]  border-black hover:border-white hover:text-white cursor-pointer hover:bg-black  ' >
       <span className='bg-[black] text-white  px-[30px] py-[10px] rounded-2xl hover:bg-gray-600' onClick={()=>navigate("/profile")}>My Profile</span>
-      <span className='bg-[black] text-white hover:bg-gray-600  px-[25px] py-[10px] rounded-2xl' onClick={()=>navigate("/enrolledcourses")}>My Courses</span>
+      <span className='bg-[black] text-white hover:bg-gray-600  px-[25px] py-[10px] rounded-2xl' >My Courses</span>
        </div>}
      <GiHamburgerMenu className='w-[30px] h-[30px] lg:hidden fill-white cursor-pointer ' onClick={()=>setShowHam(prev=>!prev)}/>
       

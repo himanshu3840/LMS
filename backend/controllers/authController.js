@@ -3,6 +3,7 @@ import validator from "validator"
 
 import bcrypt from "bcryptjs"
 import User from "../models/userModel.js"
+import Course from "../models/courseModel.js"
 
 import sendMail from "../configs/Mail.js"
 
@@ -10,6 +11,7 @@ import sendMail from "../configs/Mail.js"
 export const signUp=async (req,res)=>{
  
     try {
+
 
         let {name,email,password,role}= req.body
         let existUser= await User.findOne({email})
@@ -121,7 +123,7 @@ export const sendOtp = async (req,res) => {
         const otp = Math.floor(1000 + Math.random() * 9000).toString()
 
         user.resetOtp=otp,
-        user.otpExpires=Date.now() + 5*60*1000,
+        user.otpExpires=Date.now() + 5*60*1000, 
         user.isOtpVerifed= false 
 
         await user.save()
@@ -135,11 +137,13 @@ export const sendOtp = async (req,res) => {
 }
 
 export const verifyOtp = async (req,res) => {
+     
     try {
+
         const {email,otp} = req.body
         const user = await User.findOne({email})
         if(!user || user.resetOtp!=otp || user.otpExpires<Date.now() ){
-            return res.status(400).json({message:"Invalid OTP"})
+            return res.status(400).json({message:"Invalid OTP"}) 
         }
         user.isOtpVerifed=true
         user.resetOtp=undefined
@@ -155,7 +159,7 @@ export const verifyOtp = async (req,res) => {
 
 export const resetPassword = async (req,res) => {
     try {
-        const {email ,password } =  req.body
+        const {email ,password } =  req.body 
          const user = await User.findOne({email})
         if(!user || !user.isOtpVerifed ){
             return res.status(404).json({message:"OTP verfication required"})

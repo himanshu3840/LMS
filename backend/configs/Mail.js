@@ -1,6 +1,7 @@
-import nodemailer from "nodemailer"
+import nodemailer from "nodemailer"//nodepmailer object already contains createTransport so no need to import that
 import dotenv from "dotenv"
 dotenv.config()
+
 const transporter = nodemailer.createTransport({
   service: "Gmail",
   port: 465,
@@ -13,7 +14,7 @@ const transporter = nodemailer.createTransport({
 
 
 const sendMail=async (to,otp) => {
-    transporter.sendMail({
+       await transporter.sendMail({
         from:process.env.EMAIL,
         to:to,
         subject:"Reset Your Password",

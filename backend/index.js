@@ -6,7 +6,8 @@ import authRouter from "./routes/authRoute.js"
 
 import cookieParser from "cookie-parser"
 import cors from "cors"
-// import userRouter from "./routes/userRoute.js"
+import userRouter from "./routes/userRoute.js"
+
 // import courseRouter from "./routes/courseRoute.js"
 // import paymentRouter from "./routes/paymentRoute.js"
 // import aiRouter from "./routes/aiRoute.js"
@@ -20,7 +21,7 @@ let app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-// app.use(cookieParser())
+app.use(cookieParser())
 app.use(cors({
     origin:"http://localhost:5173",
     credentials:true

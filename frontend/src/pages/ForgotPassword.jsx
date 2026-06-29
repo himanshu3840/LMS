@@ -15,19 +15,20 @@ function ForgotPassword() {
     const [conPassword,setConpassword]= useState("")
 
    const handleStep1 = async () => {
-    setLoading(true)
-    try {
-      const result = await axios.post(`${serverUrl}/api/auth/sendotp` , {email} , {withCredentials:true})
-      console.log(result)
-      setStep(2)
-      toast.success(result.data.message)
-      setLoading(false)
-      
-    } catch (error) {
-      console.log(error)
-      toast.error(error.response.data.message)
-      setLoading(false)
-    }
+      setLoading(true)
+
+      try {
+        const result = await axios.post(`${serverUrl}/api/auth/sendotp` , {email} , {withCredentials:true})
+        console.log(result)
+        setStep(2)
+        toast.success(result.data.message)
+        setLoading(false)
+        
+      } catch (error) {
+        console.log(error)
+        toast.error(error.response.data.message)
+        setLoading(false)
+      }
     
    }
     const handleStep2 = async () => {
@@ -84,7 +85,8 @@ function ForgotPassword() {
                 placeholder="you@example.com"
                 onChange={(e)=>setEmail(e.target.value)}
 
-                value={email}
+                value={email} 
+                // this creates a connection between input and email variable
                 required
               />
             </div>
