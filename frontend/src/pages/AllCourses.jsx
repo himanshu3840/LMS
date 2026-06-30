@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import Nav from '../components/Nav';
 import ai from '../assets/SearchAi.png'
 import { useSelector } from 'react-redux';
+
 function AllCourses() {
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
   const navigate = useNavigate()

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-// import logo from '../assets/logo.jpg'
-// import google from '../assets/google.jpg'
+import logo from '../assets/logo.jpg'
+import google from '../assets/google.jpg'
 import axios from 'axios'
 import { serverUrl } from '../App'
 import { MdOutlineRemoveRedEye } from "react-icons/md";
@@ -91,11 +91,11 @@ function Login() {
                         <div className='w-[25%] h-[0.5px] bg-[#c4c4c4]'></div>
                     </div>
                 
-                    <div className='w-[80%] h-[40px] border-1 border-[#d3d2d2] rounded-[5px] flex items-center justify-center ' onClick={googleLogin} ><img src={null} alt="" className='w-[25px]' /><span className='text-[18px] text-gray-500'>oogle</span> </div>
+                    <div className='w-[80%] h-[40px] border-1 border-[#d3d2d2] rounded-[5px] flex items-center justify-center ' onClick={googleLogin} ><img src={google} alt="" className='w-[25px]' /><span className='text-[18px] text-gray-500'>oogle</span> </div>
                      <div className='text-[#6f6f6f]'>Don't have an account? <span className='underline underline-offset-1 text-[black]' onClick={()=>navigate("/signup")}>Sign up</span></div>
     
                 </div>
-                <div className='w-[50%] h-[100%] rounded-r-2xl bg-[black] md:flex items-center justify-center flex-col hidden'><img src={null} className='w-30 shadow-2xl' alt="" />
+                <div className='w-[50%] h-[100%] rounded-r-2xl bg-[black] md:flex items-center justify-center flex-col hidden'><img src={logo} className='w-30 shadow-2xl' alt="" />
                 <span className='text-[white] text-2xl'>VIRTUAL COURSES</span>
                 </div>
             </form>
