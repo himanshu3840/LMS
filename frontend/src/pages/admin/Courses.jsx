@@ -34,7 +34,7 @@ function Courses() {
 
     }
     getCreatorData()
-  }, [])
+  }, [])// this is not required as we have already called the functin in app.jsx
 
 
 

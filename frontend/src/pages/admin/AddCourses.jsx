@@ -9,10 +9,11 @@ import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
 import { ClipLoader } from 'react-spinners';
 import { setCourseData } from '../../redux/courseSlice';
+
 function AddCourses() {
+
     const navigate= useNavigate()
     const {courseId} = useParams()
-   
     
     const [selectedCourse,setSelectedCourse] = useState(null)
     const [title,setTitle] = useState("")
@@ -22,12 +23,14 @@ function AddCourses() {
     const [level,setLevel] = useState("")
     const [price,setPrice] = useState("")
     const [isPublished,setIsPublished] = useState(false)
-   const thumb=useRef()
-   const [frontendImage,setFrontendImage] = useState(null)
-   const [backendImage,setBackendImage] = useState(null)
-   let [loading,setLoading] = useState(false)
-   const dispatch = useDispatch()
-   const {courseData} = useSelector(state=>state.course)
+
+    const thumb=useRef()
+    const [frontendImage,setFrontendImage] = useState(null)
+    const [backendImage,setBackendImage] = useState(null)
+    let [loading,setLoading] = useState(false)
+    const dispatch = useDispatch()
+
+    const {courseData} = useSelector(state=>state.course)
 
 
 
@@ -42,7 +45,8 @@ function AddCourses() {
       }
       
     }
-    useEffect(() => {
+     
+  useEffect(() => {
   if (selectedCourse) {
     setTitle(selectedCourse.title || "")
     setSubTitle(selectedCourse.subTitle || "")
@@ -55,12 +59,14 @@ function AddCourses() {
 
 
   }
-}, [selectedCourse])
+}, [selectedCourse])// taaki jo bhi hanmne save kar rakha hai wo dikhai de
+
 
     useEffect(()=>{
       getCourseById()
 
     },[])
+    
   const handleThumbnail = (e)=>{
     const file = e.target.files[0]
     setBackendImage(file)
@@ -70,6 +76,7 @@ function AddCourses() {
 
 const editCourseHandler = async () => {
   setLoading(true);
+
   const formData = new FormData();
   formData.append("title", title);
   formData.append("subTitle", subTitle);
@@ -85,9 +92,10 @@ const editCourseHandler = async () => {
       `${serverUrl}/api/course/editcourse/${courseId}`,
       formData,
       { withCredentials: true }
-    );
+    ); 
 
     const updatedCourse = result.data;
+  
     if (updatedCourse.isPublished) {
       const updatedCourses = courseData.map(c =>
         c._id === courseId ? updatedCourse : c
@@ -205,6 +213,7 @@ const editCourseHandler = async () => {
             </div>
 
             {/* Price */}
+
             <div className="flex-1">
               <label className="block text-sm font-medium text-gray-700 mb-1">Price (INR)</label>
               <input type="number" placeholder="₹" className="w-full border px-4 py-2 rounded-md" onChange={(e)=>setPrice(e.target.value)} value={price} />

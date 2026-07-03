@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { serverUrl } from "../../App";
 import { toast } from "react-toastify";
 import { ClipLoader } from "react-spinners";
+
 const CreateCourse = () => {
     let navigate = useNavigate()
     let [loading,setLoading]=useState(false)
@@ -50,7 +51,7 @@ const CreateCourse = () => {
                     </div>
 
                     {/* Category */}
-                    <div>
+                    <div> 
                         <label className="block text-sm font-medium text-gray-700 mb-1">
                             Category
                         </label>

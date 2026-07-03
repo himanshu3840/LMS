@@ -4,6 +4,7 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGri
 import img from "../../assets/empty.jpg"; // fallback photo
 import { useNavigate } from 'react-router-dom';
 import { FaArrowLeftLong } from "react-icons/fa6";
+
 function Dashboard() {
   const navigate = useNavigate()
   const { userData } = useSelector((state) => state.user);
@@ -33,6 +34,7 @@ function Dashboard() {
       left-[10%] h-[22px] cursor-pointer' onClick={() => navigate("/")} />
       <div className="w-full px-6 py-10   bg-gray-50 space-y-10">
         {/* Welcome Section */}
+
         <div className="max-w-5xl mx-auto bg-white rounded-xl shadow-md p-6 flex flex-col md:flex-row items-center gap-6">
           <img
             src={userData?.photoUrl || img}
@@ -41,7 +43,7 @@ function Dashboard() {
           />
           <div className="text-center md:text-left space-y-1">
             <h1 className="text-2xl font-bold text-gray-800">
-              Welcome, {userData?.name || "Educator"} 👋
+              Welcome, {userData?.name || "Educator"} 
             </h1>
             <h1 className='text-xl font-semibold text-gray-800'>Total Earning : <span className='font-light text-gray-900'>₹{totalEarnings.toLocaleString()}</span>  </h1>
             <p className="text-gray-600 text-sm">

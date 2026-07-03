@@ -20,7 +20,7 @@ console.log("Average Rating:", avgRating);
         src={thumbnail}
         alt={title}
         className="w-full h-48 object-cover"
-      />
+      /> 
 
       {/* Content */}
       <div className="p-5 space-y-2">
