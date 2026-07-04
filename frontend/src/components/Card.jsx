@@ -1,18 +1,22 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-const CourseCard = ({ thumbnail, title, category, price ,id , reviews }) => {
-  const navigate = useNavigate()
-   const calculateAverageRating = (reviews) => {
-  if (!reviews || reviews.length === 0) return 0;
 
-  const total = reviews.reduce((sum, review) => sum + review.rating, 0);
-  return (total / reviews.length).toFixed(1); // rounded to 1 decimal
-};
+const CourseCard = ({ thumbnail, title, category, price ,id }) => {
+  const navigate = useNavigate()
+  
+//   const calculateAverageRating = (reviews) => {
+//   if (!reviews || reviews.length === 0) return 0;
+
+//   const total = reviews.reduce((sum, review) => sum + review.rating, 0);
+//   return (total / reviews.length).toFixed(1); // rounded to 1 decimal
+// };
 
 // Usage:
-const avgRating = calculateAverageRating(reviews);
-console.log("Average Rating:", avgRating);
+// const avgRating = calculateAverageRating(reviews);
+
+// console.log("Average Rating:", avgRating);
+
   return (
     <div className="max-w-sm w-full bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 border border-gray-300" onClick={()=>navigate(`/viewcourse/${id}`)}>
       {/* Thumbnail */}
@@ -39,7 +43,7 @@ console.log("Average Rating:", avgRating);
           <span className="font-semibold text-gray-800">₹{price}</span>
          
            <span className="flex items-center gap-1 ">
-            <FaStar className="text-yellow-500" /> {avgRating}
+            <FaStar className="text-yellow-500" /> {null}// yaha par rating wala part complete karne ke baad update karna hai
           </span>
           
         </div>

@@ -135,7 +135,7 @@ const editCourseHandler = async () => {
       console.log(error)
       toast.error(error.response.data.message)
       setLoading(false)
-    }
+    } 
   }
 
     

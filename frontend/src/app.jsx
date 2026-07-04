@@ -24,7 +24,7 @@ import CreateCourse from './pages/admin/CreateCourse'
 // import ViewLecture from './pages/ViewLecture'
 // import SearchWithAi from './pages/SearchWithAi'
 
-import getCouseData from './customHooks/getCouseData'
+import getCourseData from './customHooks/getCourseData'
 import getCreatorCourseData from './customHooks/getCreatorCourseData'
 // import getAllReviews from './customHooks/getAllReviews'
 

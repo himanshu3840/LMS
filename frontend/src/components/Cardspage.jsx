@@ -5,12 +5,14 @@ import { SiViaplay } from "react-icons/si";
 import { useNavigate } from 'react-router-dom';
 
 function Cardspage() {
+
   const [popularCourses,setPopularCourses] =useState([]);
   const {courseData} = useSelector(state=>state.course)
   const navigate = useNavigate()
   useEffect(()=>{
     setPopularCourses(courseData.slice(0,6));
     },[courseData])
+
   return (
     <div className=' relative flex items-center justify-center flex-col'>
       <h1 className='md:text-[45px] text-[30px] font-semibold text-center mt-[30px] px-[20px]'>Our Popular Courses</h1>
@@ -18,8 +20,6 @@ function Cardspage() {
     <div className='w-[100%] min-[100vh] flex items-center justify-center flex-wrap gap-[50px] lg:p-[50px] md:p-[30px] p-[10px] mb-[40px]
 
     '>
-
-    
             {
                 popularCourses.map((item,index)=>(
                     <Card key={index} id={item._id} thumbnail={item.thumbnail} title={item.title} price={item.price} category={item.category} reviews={item.reviews}  />
