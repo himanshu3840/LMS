@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setLectureData } from '../../redux/lectureSlice';
 
 function CreateLecture() {
+
     const navigate = useNavigate()
     const {courseId} = useParams()
     const [lectureTitle , setLectureTitle] = useState("")
@@ -21,7 +22,7 @@ function CreateLecture() {
       setLoading(true)
       try {
         const result = await axios.post(serverUrl + `/api/course/createlecture/${courseId}` ,{lectureTitle} , {withCredentials:true})
-        console.log(result.data)
+        console.log(result.data) 
       dispatch(setLectureData([...lectureData,result.data.lecture]))
         toast.success("Lecture Created")
         setLoading(false)
@@ -39,8 +40,6 @@ function CreateLecture() {
           const result = await axios.get(serverUrl + `/api/course/getcourselecture/${courseId}`,{withCredentials:true})
         console.log(result.data)
         dispatch(setLectureData(result.data.lectures))
-        
-
           
         } catch (error) {
            console.log(error)
@@ -74,13 +73,16 @@ function CreateLecture() {
 
         {/* Buttons */}
         <div className="flex gap-4 mb-6">
+
           <button className="flex items-center gap-2 px-4 py-2 rounded-md bg-gray-200 hover:bg-gray-300 text-sm font-medium" onClick={()=>navigate(`/addcourses/${courseId}`)
           }>
             <FaArrowLeft /> Back to Course
           </button>
-          <button className="px-5 py-2 rounded-md bg-[black] text-white hover:bg-gray-600 transition-all text-sm font-medium shadow" disabled={loading} onClick={createLectureHandler}>
+
+          <button className="px-5 py-2 rounded-md bg-[#020000] text-white hover:bg-gray-600 transition-all text-sm font-medium shadow" disabled={loading} onClick={createLectureHandler}>
            {loading?<ClipLoader size={30} color='white'/>: "+ Create Lecture"}
           </button>
+
         </div>
 
         {/* Lecture List */}

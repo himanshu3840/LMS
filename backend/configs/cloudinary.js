@@ -21,7 +21,7 @@ const uploadOnCloudinary = async (filePath) => {
         console.log("Uploading file:", filePath);
 
         const uploadResult = await cloudinary.uploader.upload(filePath, {
-            resource_type: "auto"
+            resource_type: "auto"// isse wo video bhi accept karlega
         });
 
         console.log("Upload Success:", uploadResult);

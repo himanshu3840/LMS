@@ -5,25 +5,38 @@ import { useNavigate } from 'react-router-dom';
 import Nav from '../components/Nav';
 import ai from '../assets/SearchAi.png'
 import { useSelector } from 'react-redux';
+
 function AllCourses() {
+
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
   const navigate = useNavigate()
  const [category,setCategory] = useState([])
  const [filterCourses,setFilterCourses] = useState([])
   const {courseData} = useSelector(state=>state.course)
 
- 
+
   
   const toggleCategory = (e) =>{
      if(category.includes(e.target.value)){
-       setCategory(prev=> prev.filter(item => item !== e.target.value))
+       setCategory(prev=> prev.filter(item => item !== e.target.value))//jo bhi item target.value ke  equal hoga wo remove hojayega 
      }else{
       setCategory(prev => [...prev,e.target.value])
      }
   }
 
+//in the above e can be
+//   e = {
+//     target: {
+//         value: "AI/ML",
+//         checked: true,
+//         ...
+//     },
+//     type: "change",
+//     ...
+// }
+
   const applyFilter = () =>{
-    let courseCopy = courseData.slice();
+    let courseCopy = courseData.slice();// creates a shallow copy of the array
 
     if(category.length > 0){
       courseCopy = courseCopy.filter(item => category.includes(item.category))
@@ -57,10 +70,11 @@ setFilterCourses(courseData)
         ${isSidebarVisible ? 'translate-x-0' : '-translate-x-full'} 
         md:block md:translate-x-0`}>
           
-        <h2 className="text-xl font-bold flex items-center justify-center gap-2 text-gray-50 mb-6"><FaArrowLeftLong className='text-white' onClick={()=>navigate("/")}/>Filter by Category</h2>
+        <h2 className="text-xl font-bold flex items-center justify-center gap-2 text-gray-50 mb-6"><FaArrowLeftLong className='text-white' onClick={()=>navigate("/")}/>Filter by  Category</h2>
 
         <form className="space-y-4 text-sm  bg-gray-600 border-white text-[white] border  p-[20px] rounded-2xl" onSubmit={(e)=>e.preventDefault()}>
           <button className='px-[10px] py-[10px]  bg-black text-white  rounded-[10px] text-[15px] font-light flex items-center justify-center gap-2 cursor-pointer' onClick={()=>navigate("/searchwithai")}>Search with AI <img src={ai} className='w-[30px] h-[30px] rounded-full' alt="" /></button>
+          
           <label  className="flex items-center gap-3 cursor-pointer hover:text-gray-200 transition">
               <input type="checkbox" className="accent-black w-4 h-4 rounded-md" value={'App Development'} onChange={toggleCategory}/>
               App Development

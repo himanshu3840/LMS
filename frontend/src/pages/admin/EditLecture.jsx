@@ -7,7 +7,9 @@ import { serverUrl } from '../../App'
 import { setLectureData } from '../../redux/lectureSlice'
 import { toast } from 'react-toastify'
 import { ClipLoader } from 'react-spinners'
+
 function EditLecture() {
+  
     const [loading,setLoading]= useState(false)
     const [loading1,setLoading1]= useState(false)
     const {courseId , lectureId} = useParams()

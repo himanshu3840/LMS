@@ -17,7 +17,7 @@ function Logos() {
         </div>
         <div className='flex items-center justify-center gap-2  px-5 py-3   rounded-3xl bg-gray-200 cursor-pointer'>
             <FaSackDollar className='w-[30px] h-[30px] fill-[#03394b]' />
-            <span className='text-[#03394b]' bg-red->Value For Money</span>
+            <span className='text-[#03394b]' >Value For Money</span>
         </div>
         <div className='flex items-center justify-center gap-2  px-5 py-3  rounded-3xl bg-gray-200 cursor-pointer'>
             <BiSupport className='w-[35px] h-[35px] fill-[#03394b]' />

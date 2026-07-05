@@ -20,7 +20,7 @@ function AddCourses() {
     const [subTitle,setSubTitle] = useState("")
     const [description,setDescription] = useState("")
     const [category,setCategory] = useState("")
-    const [level,setLevel] = useState("")
+    const [level,setLevel] = useState(undefined)
     const [price,setPrice] = useState("")
     const [isPublished,setIsPublished] = useState(false)
 
@@ -52,7 +52,7 @@ function AddCourses() {
     setSubTitle(selectedCourse.subTitle || "")
     setDescription(selectedCourse.description || "")
     setCategory(selectedCourse.category || "")
-    setLevel(selectedCourse.level || "")
+    setLevel(selectedCourse.level || undefined)
     setPrice(selectedCourse.price || "")
     setFrontendImage(selectedCourse.thumbnail || img)
     setIsPublished(selectedCourse?.isPublished)
