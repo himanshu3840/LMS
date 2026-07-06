@@ -43,7 +43,7 @@ const CourseCard = ({ thumbnail, title, category, price ,id }) => {
           <span className="font-semibold text-gray-800">₹{price}</span>
          
            <span className="flex items-center gap-1 ">
-            <FaStar className="text-yellow-500" /> {null}// yaha par rating wala part complete karne ke baad update karna hai
+            <FaStar className="text-yellow-500" /> {null}
           </span>
           
         </div>

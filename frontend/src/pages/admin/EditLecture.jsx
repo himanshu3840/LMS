@@ -12,9 +12,10 @@ function EditLecture() {
   
     const [loading,setLoading]= useState(false)
     const [loading1,setLoading1]= useState(false)
-    const {courseId , lectureId} = useParams()
+    const {courseId , lectureId} = useParams() 
     const {lectureData} = useSelector(state=>state.lecture)
     const dispatch = useDispatch()
+
     const selectedLecture = lectureData.find(lecture => lecture._id === lectureId)
     const [videoUrl,setVideoUrl] = useState(null)
     const [lectureTitle,setLectureTitle] = useState(selectedLecture.lectureTitle)
@@ -31,7 +32,7 @@ function EditLecture() {
       try {
         const result = await axios.post(serverUrl + `/api/course/editlecture/${lectureId}` , formData , {withCredentials:true})
         console.log(result.data)
-        dispatch(setLectureData([...lectureData,result.data]))
+        dispatch(setLectureData([...lectureData,result.data]))// this will append another lecture with same id which is a problem 
         toast.success("Lecture Updated")
         navigate("/courses")
         setLoading(false)
@@ -57,17 +58,10 @@ function EditLecture() {
       }
       
     }
-
-
-
-
-
-
-   
-
     
 
-    const navigate = useNavigate()
+  const navigate = useNavigate()
+
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
       <div className="w-full max-w-xl bg-white rounded-xl shadow-lg p-6 space-y-6">

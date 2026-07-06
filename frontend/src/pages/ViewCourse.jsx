@@ -14,8 +14,8 @@ import { FaStar } from "react-icons/fa6";
 
 function ViewCourse() {
 
-      const { courseId } = useParams();
-      const navigate = useNavigate()
+    const { courseId } = useParams();
+    const navigate = useNavigate() 
     const {courseData} = useSelector(state=>state.course)
     const {userData} = useSelector(state=>state.user)
     const [creatorData , setCreatorData] = useState(null)
@@ -23,10 +23,13 @@ function ViewCourse() {
     const [selectedLecture, setSelectedLecture] = useState(null);
     const {lectureData} = useSelector(state=>state.lecture)
     const {selectedCourseData} = useSelector(state=>state.course)
-  const [selectedCreatorCourse,setSelectedCreatorCourse] = useState([])
-   const [isEnrolled, setIsEnrolled] = useState(false);
-   const [rating, setRating] = useState(0);
-   const [comment, setComment] = useState("");
+
+    // yaha par hum selected course data course id ka use karke coursedata se extract kar sakte hai
+
+    const [selectedCreatorCourse,setSelectedCreatorCourse] = useState([])
+    const [isEnrolled, setIsEnrolled] = useState(false);
+    const [rating, setRating] = useState(0);
+    const [comment, setComment] = useState("");
    
    
   
@@ -73,10 +76,11 @@ console.log("Average Rating:", avgRating);
     })
 
   }
-    const checkEnrollment = () => {
-  const verify = userData?.enrolledCourses?.some(c => {
-    const enrolledId = typeof c === 'string' ? c : c._id;
-    return enrolledId?.toString() === courseId?.toString();
+
+  const checkEnrollment = () => {
+    const verify = userData?.enrolledCourses?.some(c => {
+      const enrolledId = typeof c === 'string' ? c : c._id;
+      return enrolledId?.toString() === courseId?.toString();
   });
 
   console.log("Enrollment verified:", verify);
@@ -217,6 +221,7 @@ setIsEnrolled(true)
             </ul>
 
             {/* Enroll Button */}
+
             {!isEnrolled ?<button className="bg-[black] text-white px-6 py-2 rounded hover:bg-gray-700 mt-3" onClick={()=>handleEnroll(courseId , userData._id)}>
               Enroll Now
             </button> :
@@ -310,6 +315,7 @@ setIsEnrolled(true)
     </p>
   </div>
 </div>
+
 <div className="mt-8 border-t pt-6">
     <h2 className="text-xl font-semibold mb-2">Write a Review</h2>
     <div className="mb-4">
@@ -334,6 +340,7 @@ setIsEnrolled(true)
       >
         Submit Review
       </button>
+      
     </div>
 
         {/* Instructor Info */}
@@ -355,6 +362,7 @@ setIsEnrolled(true)
             
           </div>
         </div>
+        
         <div>
           <p className='text-xl font-semibold mb-2'>Other Published Courses by the Educator -</p>
         <div className='w-full transition-all duration-300 py-[20px]   flex items-start justify-center lg:justify-start flex-wrap gap-6 lg:px-[80px] '>

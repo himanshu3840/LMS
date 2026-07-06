@@ -19,7 +19,7 @@ import CreateCourse from './pages/admin/CreateCourse'
 import CreateLecture from './pages/admin/CreateLecture'
 import EditLecture from './pages/admin/EditLecture'
 
-// import ViewCourse from './pages/ViewCourse'
+import ViewCourse from './pages/ViewCourse'
 // import EnrolledCourse from './pages/EnrolledCourse'
 // import ViewLecture from './pages/ViewLecture'
 // import SearchWithAi from './pages/SearchWithAi'
@@ -28,7 +28,7 @@ import getCourseData from './customHooks/getCourseData'
 import getCreatorCourseData from './customHooks/getCreatorCourseData'
 // import getAllReviews from './customHooks/getAllReviews'
 
-// import ScrollToTop from './components/ScrollToTop'
+import ScrollToTop from './components/ScrollToTop'
 
 export const serverUrl = "http://localhost:8000"
 
@@ -44,7 +44,7 @@ function App() {
   return (
     <>
       <ToastContainer />
-      {/* <ScrollToTop /> */}
+      <ScrollToTop />
 
       <Routes>
         <Route path='/' element={<Home />} />
@@ -59,9 +59,9 @@ function App() {
          <Route path='/allcourses' element={userData ? <AllCourses /> : <Navigate to={"/signup"} />} />
         <Route path='/createlecture/:courseId' element={userData?.role === "educator" ? <CreateLecture /> : <Navigate to={"/signup"} />} />
         <Route path='/editlecture/:courseId/:lectureId' element={userData?.role === "educator" ? <EditLecture /> : <Navigate to={"/signup"} />} />
-        
+        <Route path='/viewcourse/:courseId' element={userData ? <ViewCourse /> : <Navigate to={"/signup"} />} />        
         {/*
-        <Route path='/viewcourse/:courseId' element={userData ? <ViewCourse /> : <Navigate to={"/signup"} />} />
+        
         <Route path='/enrolledcourses' element={userData ? <EnrolledCourse /> : <Navigate to={"/signup"} />} />
         <Route path='/viewlecture/:courseId' element={userData ? <ViewLecture /> : <Navigate to={"/signup"} />} />
         <Route path='/searchwithai' element={userData ? <SearchWithAi /> : <Navigate to={"/signup"} />} />
