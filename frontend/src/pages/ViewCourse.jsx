@@ -79,7 +79,8 @@ console.log("Average Rating:", avgRating);
 
   const checkEnrollment = () => {
     const verify = userData?.enrolledCourses?.some(c => {
-      const enrolledId = typeof c === 'string' ? c : c._id;
+      const enrolledId = typeof c === 'string' ? c : c._id;// agar c pahle se string hai to c hi rahne do nahi to c.id lelo kyuki c can be object if populated 
+      // c matlab har ek element of enrolled courses
       return enrolledId?.toString() === courseId?.toString();
   });
 
@@ -88,6 +89,8 @@ console.log("Average Rating:", avgRating);
     setIsEnrolled(true);
   }
 };
+
+
   useEffect(() => {
     fetchCourseData()
     checkEnrollment()
@@ -149,21 +152,26 @@ const handleEnroll = async (courseId, userId) => {
       name: "Virtual Courses",
       description: "Course Enrollment Payment",
       order_id: orderData.data.id,
+      
       handler: async function (response) {
-  console.log("Razorpay Response:", response);
-  try {
-    const verifyRes = await axios.post(serverUrl + "/api/payment/verify-payment",{
-  ...response,       
-  courseId,
-  userId
-}, { withCredentials: true });
-    
-setIsEnrolled(true)
-    toast.success(verifyRes.data.message);
-  } catch (verifyError) {
-    toast.error("Payment verification failed.");
-    console.error("Verification Error:", verifyError);
-  }
+        console.log("Razorpay Response:", response);
+
+        try {
+          const verifyRes = await axios.post(serverUrl + "/api/payment/verify-payment",{
+            ...response,       
+            courseId,
+            userId
+          }, { withCredentials: true });
+
+
+          
+        setIsEnrolled(true)
+          toast.success(verifyRes.data.message);
+
+        }catch (verifyError) {
+          toast.error("Payment verification failed.");
+          console.error("Verification Error:", verifyError);
+        }
   },
     };
     
