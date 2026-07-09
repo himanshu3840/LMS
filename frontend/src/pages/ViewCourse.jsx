@@ -51,14 +51,15 @@ function ViewCourse() {
   
 
   const calculateAverageRating = (reviews) => {
-  if (!reviews || reviews.length === 0) return 0;
+    if (!reviews || reviews.length === 0) return 0;
 
-  const total = reviews.reduce((sum, review) => sum + review.rating, 0);
-  return (total / reviews.length).toFixed(1); // rounded to 1 decimal
-};
+    const total = reviews.reduce((sum, review) => sum + review.rating, 0);
+    return (total / reviews.length).toFixed(1); // rounded to 1 decimal
+  };
 
 // Usage:
 const avgRating = calculateAverageRating(selectedCourseData?.reviews);
+
 console.log("Average Rating:", avgRating);
 
   
@@ -79,7 +80,8 @@ console.log("Average Rating:", avgRating);
 
   const checkEnrollment = () => {
     const verify = userData?.enrolledCourses?.some(c => {
-      const enrolledId = typeof c === 'string' ? c : c._id;// agar c pahle se string hai to c hi rahne do nahi to c.id lelo kyuki c can be object if populated 
+      const enrolledId = typeof c === 'string' ? c : c._id;
+      // agar c pahle se string hai to c hi rahne do nahi to c.id lelo kyuki c can be object if populated 
       // c matlab har ek element of enrolled courses
       return enrolledId?.toString() === courseId?.toString();
   });

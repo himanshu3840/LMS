@@ -26,7 +26,7 @@ import ViewLecture from './pages/ViewLecture'
 
 import getCourseData from './customHooks/getCourseData'
 import getCreatorCourseData from './customHooks/getCreatorCourseData'
-// import getAllReviews from './customHooks/getAllReviews'
+import getAllReviews from './customHooks/getAllReviews'
 
 import ScrollToTop from './components/ScrollToTop'
 
@@ -39,7 +39,7 @@ function App() {
   getCurrentUser()
   getCourseData()
   getCreatorCourseData()
-  // getAllReviews()
+  getAllReviews()
 
   return (
     <>

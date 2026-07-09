@@ -60,7 +60,9 @@ function Dashboard() {
             <h2 className="text-lg font-semibold mb-4">Course Progress (Lectures)</h2>
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={courseProgressData}>
+                {/* To add horizontal and vertical grid lines behind the graph */}
                 <CartesianGrid strokeDasharray="3 3" />
+                
                 <XAxis dataKey="name" />
                 <YAxis />
                 <Tooltip />
