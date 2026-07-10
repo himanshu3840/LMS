@@ -7,12 +7,14 @@ import { serverUrl } from '../App';
 import { useNavigate } from 'react-router-dom';
 import start from "../assets/start.mp3"
 import { FaArrowLeftLong } from "react-icons/fa6";
+
 function SearchWithAi() {
   const [input, setInput] = useState('');
   const [recommendations, setRecommendations] = useState([]);
   const [listening,setListening] = useState(false)
   const navigate = useNavigate();
   const startSound = new Audio(start)
+
   function speak(message) {
     let utterance = new SpeechSynthesisUtterance(message);
     window.speechSynthesis.speak(utterance);

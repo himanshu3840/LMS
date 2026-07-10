@@ -22,7 +22,7 @@ import EditLecture from './pages/admin/EditLecture'
 import ViewCourse from './pages/ViewCourse'
 // import EnrolledCourse from './pages/EnrolledCourse'
 import ViewLecture from './pages/ViewLecture'
-// import SearchWithAi from './pages/SearchWithAi'
+import SearchWithAi from './pages/SearchWithAi'
 
 import getCourseData from './customHooks/getCourseData'
 import getCreatorCourseData from './customHooks/getCreatorCourseData'
@@ -61,17 +61,12 @@ function App() {
         <Route path='/editlecture/:courseId/:lectureId' element={userData?.role === "educator" ? <EditLecture /> : <Navigate to={"/signup"} />} />
         <Route path='/viewcourse/:courseId' element={userData ? <ViewCourse /> : <Navigate to={"/signup"} />} />        
          <Route path='/viewlecture/:courseId' element={userData ? <ViewLecture /> : <Navigate to={"/signup"} />} />
+         <Route path='/searchwithai' element={userData ? <SearchWithAi /> : <Navigate to={"/signup"} />} />
+
         {/*
         
         <Route path='/enrolledcourses' element={userData ? <EnrolledCourse /> : <Navigate to={"/signup"} />} />
        
-        <Route path='/searchwithai' element={userData ? <SearchWithAi /> : <Navigate to={"/signup"} />} />
-
-        
-        
-       
-        
-        
          */}
 
         <Route path='/forgotpassword' element={<ForgotPassword />} />
