@@ -13,6 +13,8 @@
 
 </div>
 
+
+🔗 **Live Website:** https://lms-1-f0v3.onrender.com/
 ---
 
 Skill Grid is a full-stack Learning Management System (LMS) that connects **🧑‍🎓 students** and **🧑‍🏫 educators**. Educators can create and sell courses, students can discover and purchase them, and everyone gets a modern, responsive learning experience — with an 🤖 AI-powered course search and (in progress) a 📝 notes feature.
