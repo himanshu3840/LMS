@@ -16,7 +16,6 @@ const getCouseData = () => {
         console.log(result.data)
         dispatch(setCourseData(result.data))
         
-        
       } catch (error) {
         console.log(error)
       }
