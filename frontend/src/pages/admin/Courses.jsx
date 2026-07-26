@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react'
 
 import { FaEdit } from "react-icons/fa";
@@ -34,35 +35,38 @@ function Courses() {
 
     }
     getCreatorData()
-  }, [])// this is not required as we have already called the functin in app.jsx
+  }, [])
 
 
 
   return (
-    <div className="flex min-h-screen bg-gray-100">
+    <div className="flex min-h-screen bg-[#0B0F19] relative overflow-hidden">
 
+      {/* Ambient glow blobs */}
+      <div className="pointer-events-none absolute -top-32 -left-24 w-[380px] h-[380px] bg-purple-600/10 rounded-full blur-[130px]" />
+      <div className="pointer-events-none absolute bottom-0 -right-24 w-[360px] h-[360px] bg-cyan-500/10 rounded-full blur-[130px]" />
 
-      <div className="w-[100%] min-h-screen p-4 sm:p-6   bg-gray-100">
+      <div className="relative z-10 w-[100%] min-h-screen p-4 sm:p-6">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-3 ">
-          <div className='flex items-center justify-center gap-3'><FaArrowLeftLong className=' w-[22px] h-[22px] cursor-pointer' onClick={() => navigate("/dashboard")} />
-            <h1 className="text-xl font-semibold">Courses</h1>
+          <div className='flex items-center justify-center gap-3'><FaArrowLeftLong className='w-[22px] h-[22px] cursor-pointer text-slate-300 hover:text-cyan-400 transition-colors' onClick={() => navigate("/dashboard")} />
+            <h1 className="text-xl font-semibold text-white">Courses</h1>
           </div>
 
-          <button className="bg-[black] text-white px-4 py-2 rounded hover:bg-gray-500" onClick={() => navigate("/createcourses")}>
+          <button className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-cyan-500 text-white px-4 py-2 rounded-md shadow-lg shadow-purple-600/20 hover:shadow-[0_0_25px_-6px_rgba(124,58,237,0.8)] transition-all duration-300 cursor-pointer" onClick={() => navigate("/createcourses")}>
             Create Course
           </button>
         </div>
 
         {/* For larger screens (table layout) */}
 
-        <div className="hidden md:block bg-white rounded-xl shadow p-4 overflow-x-auto">
+        <div className="hidden md:block bg-white/[0.04] backdrop-blur-xl border border-white/10 rounded-xl shadow-[0_0_60px_-15px_rgba(124,58,237,0.35)] p-4 overflow-x-auto">
           <table className="min-w-full text-sm">
-            <thead className="border-b bg-gray-50">
+            <thead className="border-b border-white/10 bg-white/[0.02]">
               <tr>
-                <th className="text-left py-3 px-4">Course</th>
-                <th className="text-left py-3 px-4">Price</th>
-                <th className="text-left py-3 px-4">Status</th>
-                <th className="text-left py-3 px-4">Action</th>
+                <th className="text-left py-3 px-4 text-slate-300">Course</th>
+                <th className="text-left py-3 px-4 text-slate-300">Price</th>
+                <th className="text-left py-3 px-4 text-slate-300">Status</th>
+                <th className="text-left py-3 px-4 text-slate-300">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -70,31 +74,31 @@ function Courses() {
 
                 <tr key={index}
 
-                  className="border-b hover:bg-gray-50 transition duration-200"
+                  className="border-b border-white/5 hover:bg-white/5 transition duration-200"
                 >
                   <td className="py-3 px-4 flex items-center gap-4">
                     {course?.thumbnail ? <img
                       src={course?.thumbnail}
                       alt=""
-                      className="w-25 h-14 object-cover rounded-md"
-                    /> : <img src={img1} alt='' className="w-14 h-14 object-cover rounded-md object-fit" />}
-                    <span>{course?.title}</span>
+                      className="w-25 h-14 object-cover rounded-md border border-white/10"
+                    /> : <img src={img1} alt='' className="w-14 h-14 object-cover rounded-md object-fit border border-white/10" />}
+                    <span className="text-slate-200">{course?.title}</span>
                   </td>
-                  {course?.price ? <td className="py-3 px-4">₹{course?.price}</td> : <td className="py-3 px-4">₹ NA</td>}
+                  {course?.price ? <td className="py-3 px-4 text-slate-200">₹{course?.price}</td> : <td className="py-3 px-4 text-slate-500">₹ NA</td>}
                   <td className="py-3 px-4">
-                    <span className={`  px-3 py-1 rounded-full text-xs ${course?.isPublished ? "text-green-600 bg-green-100" : "text-red-600 bg-red-100"}`}>
+                    <span className={`px-3 py-1 rounded-full text-xs ${course?.isPublished ? "text-emerald-400 bg-emerald-500/10 border border-emerald-500/30" : "text-rose-400 bg-rose-500/10 border border-rose-500/30"}`}>
                       {course?.isPublished ? "Published" : "Draft"}
                     </span>
                   </td>
                   <td className="py-3 px-4">
-                    <FaEdit className="text-gray-600 hover:text-blue-600 cursor-pointer" onClick={() => navigate(`/addcourses/${course?._id}`)} />
+                    <FaEdit className="text-slate-400 hover:text-cyan-400 cursor-pointer transition-colors" onClick={() => navigate(`/addcourses/${course?._id}`)} />
                   </td>
                 </tr>
               ))
               }
             </tbody>
           </table>
-          <p className="text-center text-sm text-gray-400 mt-6">
+          <p className="text-center text-sm text-slate-500 mt-6">
             A list of your recent courses.
           </p>
         </div>
@@ -104,30 +108,30 @@ function Courses() {
           {creatorCourseData?.map((course, index) => (
             <div key={index}
 
-              className="bg-white rounded-lg shadow p-4 flex flex-col gap-3 "
+              className="bg-white/[0.04] backdrop-blur-xl border border-white/10 rounded-lg shadow-sm p-4 flex flex-col gap-3 "
             >
               <div className="flex gap-4 items-center">
                 {course?.thumbnail ? <img
                   src={course?.thumbnail}
                   alt=""
-                  className="w-16 h-16 rounded-md object-cover"
+                  className="w-16 h-16 rounded-md object-cover border border-white/10"
                 /> : <img
                   src={img1}
                   alt=""
-                  className="w-16 h-16 rounded-md object-cover"
+                  className="w-16 h-16 rounded-md object-cover border border-white/10"
                 />}
                 <div className="flex-1">
-                  <h2 className="font-medium text-sm">{course?.title}</h2>
-                  {course?.price ? <p className="text-gray-600 text-xs mt-1">₹{course?.price}</p> : <p className="text-gray-600 text-xs mt-1">₹ NA</p>}
+                  <h2 className="font-medium text-sm text-slate-200">{course?.title}</h2>
+                  {course?.price ? <p className="text-slate-400 text-xs mt-1">₹{course?.price}</p> : <p className="text-slate-500 text-xs mt-1">₹ NA</p>}
                 </div>
-                <FaEdit className="text-gray-600 hover:text-blue-600 cursor-pointer" onClick={() => navigate(`/addcourses/${course?._id}`)} />
+                <FaEdit className="text-slate-400 hover:text-cyan-400 cursor-pointer transition-colors" onClick={() => navigate(`/addcourses/${course?._id}`)} />
               </div>
-              <span className={` w-fit px-3 py-1 text-xs rounded-full  ${course?.isPublished ? "text-green-600 bg-green-100" : "text-red-600 bg-red-100"}`}>
+              <span className={`w-fit px-3 py-1 text-xs rounded-full ${course?.isPublished ? "text-emerald-400 bg-emerald-500/10 border border-emerald-500/30" : "text-rose-400 bg-rose-500/10 border border-rose-500/30"}`}>
                 {course?.isPublished ? "Published" : "Draft"}
               </span>
             </div>
           ))}
-          <p className="text-center text-sm text-gray-400 mt-4 pl-[80px]">
+          <p className="text-center text-sm text-slate-500 mt-4 pl-[80px]">
             A list of your recent courses.
           </p>
 
