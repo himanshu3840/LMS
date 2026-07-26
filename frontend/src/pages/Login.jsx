@@ -83,7 +83,7 @@ function Login() {
             <div className="flex items-center gap-2 mb-6 md:hidden">
               <img src={logo} alt="VirtualCourses" className="w-8 h-8 rounded-lg object-cover ring-1 ring-white/10" />
               <span className="text-sm font-bold tracking-tight text-white">
-                VIRTUAL<span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">COURSES</span>
+                SKILL<span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">GRID</span>
               </span>
             </div>
 
