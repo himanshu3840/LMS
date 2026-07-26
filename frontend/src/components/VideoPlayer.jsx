@@ -3,14 +3,15 @@ import myVideo from './video.mp4';
 
 function VideoPlayer() {
   return (
-    <div className="max-w-[350px] mx-auto p-4 absolute top-[55%] left-[50%]">
+    <div className="relative w-full max-w-[280px] sm:max-w-[340px] rounded-2xl overflow-hidden shadow-2xl border-2 border-white/80 bg-slate-900 group">
       <video
         src={myVideo}
         autoPlay
         loop
+        muted
+        playsInline
         controls
-        className="w-full rounded-xl shadow-lg  border-2 border-white"
-        
+        className="w-full h-auto object-cover rounded-2xl transition-transform duration-300 group-hover:scale-[1.02]"
       >
         Your browser does not support the video tag.
       </video>
