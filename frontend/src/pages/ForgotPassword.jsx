@@ -3,7 +3,7 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ClipLoader } from 'react-spinners'
-import { serverUrl } from '../App'
+import { serverUrl } from '../app'
 import { toast } from 'react-toastify'
 import { FaArrowLeftLong } from "react-icons/fa6"
 import { HiOutlineKey, HiOutlineMail, HiOutlineLockClosed } from "react-icons/hi"

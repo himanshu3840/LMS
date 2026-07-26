@@ -5,7 +5,7 @@ import ai1 from "../assets/SearchAi.png"
 import { RiMicAiFill } from "react-icons/ri";
 import { HiOutlineSparkles, HiOutlineArrowRight } from "react-icons/hi2";
 import axios from 'axios';
-import { serverUrl } from '../App';
+import { serverUrl } from '../app';
 import { useNavigate } from 'react-router-dom';
 import start from "../assets/start.mp3"
 import { FaArrowLeftLong } from "react-icons/fa6";

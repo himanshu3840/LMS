@@ -6,7 +6,7 @@ import { HiMenuAlt3, HiX, HiOutlinePhotograph } from "react-icons/hi";
 import { HiOutlineUser, HiOutlineBookOpen, HiOutlineSquares2X2, HiOutlineArrowRightOnRectangle } from "react-icons/hi2";
 
 import { useNavigate } from 'react-router-dom';
-import { serverUrl } from '../App';
+import { serverUrl } from '../app';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';

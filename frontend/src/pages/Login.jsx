@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import logo from '../assets/logo.jpg'
 import google from '../assets/google.jpg'
 import axios from 'axios'
-import { serverUrl } from '../App'
+import { serverUrl } from '../app'
 import { MdOutlineRemoveRedEye, MdRemoveRedEye } from "react-icons/md"
 import { HiArrowRight } from "react-icons/hi2"
 import { SiPython, SiReact, SiFigma, SiTensorflow } from "react-icons/si"
@@ -83,7 +83,7 @@ function Login() {
             <div className="flex items-center gap-2 mb-6 md:hidden">
               <img src={logo} alt="VirtualCourses" className="w-8 h-8 rounded-lg object-cover ring-1 ring-white/10" />
               <span className="text-sm font-bold tracking-tight text-white">
-                VIRTUAL<span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">COURSES</span>
+                SKILL<span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">GRID</span>
               </span>
             </div>
 
@@ -220,7 +220,7 @@ function Login() {
           <div className="relative z-10 flex items-center gap-2">
             <img src={logo} alt="VirtualCourses" className="w-9 h-9 rounded-lg object-cover ring-2 ring-white/10" />
             <span className="text-sm font-bold tracking-tight text-white">
-              VIRTUAL<span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">COURSES</span>
+              SKILL<span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">GRID</span>
             </span>
           </div>
 

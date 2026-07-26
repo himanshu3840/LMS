@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import logo from '../assets/logo.jpg'
 import google from '../assets/google.jpg'
 import axios from 'axios'
-import { serverUrl } from '../App'
+import { serverUrl } from '../app'
 import { MdOutlineRemoveRedEye, MdRemoveRedEye } from "react-icons/md"
 import { FaGraduationCap, FaChalkboardTeacher } from "react-icons/fa"
 import { HiArrowRight } from "react-icons/hi2"

@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { FaArrowLeft } from "react-icons/fa"
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
-import { serverUrl } from '../../App'
+import { serverUrl } from '../../app'
 import { setLectureData } from '../../redux/lectureSlice'
 import { toast } from 'react-toastify'
 import { ClipLoader } from 'react-spinners'

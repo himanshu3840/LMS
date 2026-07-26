@@ -11,7 +11,7 @@ import Profile from './pages/Profile'
 import EditProfile from './pages/EditProfile'
 import Dashboard from './pages/admin/Dashboard'
 import Courses from './pages/admin/Courses'
-import AllCouses from './pages/AllCouses'
+import AllCouses from './pages/AllCourses'
 import AddCourses from './pages/admin/AddCourses'
 import CreateCourse from './pages/admin/CreateCourse'
 import CreateLecture from './pages/admin/CreateLecture'
@@ -26,7 +26,7 @@ import ViewLecture from './pages/ViewLecture'
 import SearchWithAi from './pages/SearchWithAi'
 import getAllReviews from './customHooks/getAllReviews'
 
-export const serverUrl = "https://lms-ey2m.onrender.com"
+export const serverUrl = "https://lms-yxja.onrender.com"
 
 function App() {
   
