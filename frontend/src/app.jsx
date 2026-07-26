@@ -26,7 +26,7 @@ import ViewLecture from './pages/ViewLecture'
 import SearchWithAi from './pages/SearchWithAi'
 import getAllReviews from './customHooks/getAllReviews'
 
-export const serverUrl = "https://lms-ey2m.onrender.com"
+export const serverUrl = "https://lms-yxja.onrender.com"
 
 function App() {
   
