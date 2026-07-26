@@ -36,8 +36,8 @@ export const signUp=async (req,res)=>{
         let token = await genToken(user._id)
         res.cookie("token",token,{
             httpOnly:true,// isse frontend js can not read this cookie
-            secure:false,
-            sameSite: "Strict",//Only send cookie when request comes from same website
+            secure:true,
+            sameSite: "none",//Only send cookie when request comes from same website
             maxAge: 7 * 24 * 60 * 60 * 1000// to store cookie and users browser for seven days
         })
         return res.status(201).json(user)
@@ -62,8 +62,8 @@ export const login=async(req,res)=>{
         let token =await genToken(user._id)
         res.cookie("token",token,{
             httpOnly:true,
-            secure:false,
-            sameSite: "Strict",
+            secure:true,
+            sameSite: "none",
             maxAge: 7 * 24 * 60 * 60 * 1000
         })
         return res.status(200).json(user)
@@ -99,8 +99,8 @@ export const googleSignup = async (req,res) => {
         let token =await genToken(user._id)
         res.cookie("token",token,{
             httpOnly:true,
-            secure:false,
-            sameSite: "Strict",
+            secure:true,
+            sameSite: "none",
             maxAge: 7 * 24 * 60 * 60 * 1000
         })
         return res.status(200).json(user)
